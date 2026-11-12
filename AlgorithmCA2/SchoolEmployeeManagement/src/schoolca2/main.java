@@ -6,7 +6,7 @@ package schoolca2;
 
 /**
  *
- * @author ipman
+ * @author jeremiah
  */
 public class main {
 
