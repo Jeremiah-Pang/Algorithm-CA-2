@@ -7,6 +7,7 @@ package schoolca2.controller;
 import schoolca2.model.Employee;
 import schoolca2.model.EmployeeRepository;
 import schoolca2.view.ConsoleView;
+import schoolca2.model.EmployeeAlgorithms;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,11 +20,13 @@ public class EmployeeController {
     
     private EmployeeRepository repository;
     private ConsoleView view;
+    private EmployeeAlgorithms algorithms;
     
     // Create the Model and View objects
     public EmployeeController() {
         repository = new EmployeeRepository();
         view = new ConsoleView();
+        algorithms = new EmployeeAlgorithms();
     }
     
     // Start the employee management system
@@ -41,8 +44,12 @@ public class EmployeeController {
             
             view.displayMessage("File read successfully!");
             
-            // Display all employee records
-            view.displayEmployees(employees);
+            // Sort employee records alphabetically
+                List<Employee> sortedEmployees =
+                        algorithms.mergeSort(employees);
+
+            // Display only the first 20 employees
+                view.displayTop20Employees(sortedEmployees);
             
         }catch (IOException e){
             

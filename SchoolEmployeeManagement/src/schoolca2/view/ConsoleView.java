@@ -32,4 +32,22 @@ public class ConsoleView {
     public void displayMessage(String message) {
         System.out.println(message);
     }
+    
+    
+    // Display the first 20 sorted employees
+    public void displayTop20Employees(List<Employee> employees) {
+
+        System.out.println("\n=================================");
+        System.out.println(" TOP 20 SCHOOL EMPLOYEES");
+        System.out.println("=================================");
+
+        int limit = Math.min(20, employees.size());
+
+        for (int i = 0; i < limit; i++) {
+            System.out.println((i + 1) + ". " + employees.get(i));
+        }
+
+        System.out.println("=================================");
+    }
+
 }
