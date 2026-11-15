@@ -6,6 +6,8 @@ package schoolca2.view;
 
 import schoolca2.model.Employee;
 import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author Jeremiah
@@ -49,5 +51,36 @@ public class ConsoleView {
 
         System.out.println("=================================");
     }
+    
+    private Scanner scanner = new Scanner(System.in);
+
+    // Ask user for employee name
+    public String getEmployeeNameInput() {
+
+        System.out.print("\nEnter employee full name: ");
+
+        return scanner.nextLine().trim();
+    }
+
+    // Display search result
+    public void displaySearchResult(Employee employee) {
+
+        if (employee == null) {
+            System.out.println("\nEmployee not found!");
+            return;
+        }
+
+        System.out.println("\n=================================");
+        System.out.println(" EMPLOYEE SEARCH RESULT");
+        System.out.println("=================================");
+
+        System.out.println("Name: " + employee.getFullName());
+        System.out.println("Department: " + employee.getDepartment());
+        System.out.println("Position: " + employee.getPosition());
+        System.out.println("Job Title: " + employee.getJobTitle());
+
+        System.out.println("=================================");
+    }
+
 
 }

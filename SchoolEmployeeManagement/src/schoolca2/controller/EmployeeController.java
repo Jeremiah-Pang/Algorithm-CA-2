@@ -50,6 +50,15 @@ public class EmployeeController {
 
             // Display only the first 20 employees
                 view.displayTop20Employees(sortedEmployees);
+                
+            // Search for an employee
+                String searchName = view.getEmployeeNameInput();
+
+            Employee foundEmployee =
+                  algorithms.binarySearch(sortedEmployees, searchName);
+
+            // Display employee details
+                   view.displaySearchResult(foundEmployee);
             
         }catch (IOException e){
             

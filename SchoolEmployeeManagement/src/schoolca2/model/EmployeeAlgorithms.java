@@ -70,4 +70,52 @@ public class EmployeeAlgorithms {
         
         return result;
     }
+    
+    // Recursive Binary Search
+    public Employee binarySearch(
+            List<Employee> employees, String targetName) {
+
+        return binarySearchRecursive(
+                employees,
+                targetName.trim(),
+                0,
+                employees.size() - 1
+        );
+    }
+
+    // Helper method for recursive searching
+    private Employee binarySearchRecursive(
+            List<Employee> employees,
+            String targetName,
+            int left,
+            int right) {
+
+        // Employee not found
+        if (left > right) {
+            return null;
+        }
+
+        int middle = left + (right - left) / 2;
+
+        Employee middleEmployee = employees.get(middle);
+
+        int comparison = targetName.compareToIgnoreCase(
+                middleEmployee.getFullName()
+        );
+
+        if (comparison == 0) {
+            return middleEmployee;
+        }
+
+        if (comparison < 0) {
+            return binarySearchRecursive(
+                    employees, targetName, left, middle - 1
+            );
+        }
+
+        return binarySearchRecursive(
+                employees, targetName, middle + 1, right
+        );
+    }
+
 }
