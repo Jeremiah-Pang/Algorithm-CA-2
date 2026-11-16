@@ -7,6 +7,7 @@ package schoolca2.view;
 import schoolca2.model.Employee;
 import java.util.List;
 import java.util.Scanner;
+import schoolca2.MenuOption;
 
 /**
  *
@@ -202,7 +203,50 @@ public class ConsoleView {
         System.out.println("Total Nodes: " + nodeCount);
         System.out.println("=================================");
     }
+    
+    
+    // Display the main menu
+    public void displayMenu() {
 
+        System.out.println("\n=================================");
+        System.out.println(" SCHOOL EMPLOYEE MANAGEMENT");
+        System.out.println("=================================");
 
+        for (MenuOption option : MenuOption.values()) {
+
+            System.out.println(
+                option.getNumber() + ". " +
+                option.name().replace('_', ' ')
+            );
+        }
+
+        System.out.println("=================================");
+        System.out.print("Please select an option: ");
+    }
+
+    // Get menu selection from user
+    public MenuOption getMenuOption() {
+
+        String input = scanner.nextLine().trim();
+
+        try {
+
+            int choice = Integer.parseInt(input);
+
+            MenuOption option =
+                    MenuOption.fromNumber(choice);
+
+            if (option != null) {
+                return option;
+            }
+
+        } catch (NumberFormatException e) {
+            // Invalid input
+        }
+
+        System.out.println("Invalid option! Please enter 1-5.");
+
+        return null;
+    }
 
 }
