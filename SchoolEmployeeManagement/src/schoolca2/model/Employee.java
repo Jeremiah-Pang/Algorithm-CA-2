@@ -19,8 +19,9 @@ public class Employee {
     private String position;
     private String jobTitle;
     private String company;
+    private String managerType;
     
-    public Employee(String firstName, String lastName, String gender, String email, double salary, String department, String position, String jobTitle, String company) {
+    public Employee(String firstName, String lastName, String gender, String email, double salary, String department, String position, String jobTitle, String company, String managerType) {
         
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,6 +32,7 @@ public class Employee {
         this.position = position;
         this.jobTitle = jobTitle;
         this.company = company;
+        this.managerType = managerType;
     }
     
     public String getFirstName() {
@@ -72,6 +74,14 @@ public class Employee {
     public String getCompany(){
         return company;
     }
+    
+    public String getManagerType() {
+        return managerType;
+    }
+    
+    public void setManagerType(String managerType) {
+    this.managerType = managerType;
+}
     
     @Override
     public String toString(){

@@ -81,6 +81,96 @@ public class ConsoleView {
 
         System.out.println("=================================");
     }
+    
+    
+    // Get new employee name
+    public String getNewEmployeeName() {
+
+        System.out.print("\nEnter employee full name: ");
+
+        return scanner.nextLine().trim();
+    }
+
+    // Select a valid Manager Type
+    public String getManagerTypeInput() {
+
+        String[] managerTypes = {
+            "Senior Manager",
+            "Manager",
+            "Team Lead",
+            "Employee"
+        };
+
+        while (true) {
+
+            System.out.println("\nSelect Manager Type:");
+
+            for (int i = 0; i < managerTypes.length; i++) {
+                System.out.println(
+                    (i + 1) + ". " + managerTypes[i]
+                );
+            }
+
+            System.out.print("Enter choice: ");
+
+            String choice = scanner.nextLine().trim();
+
+            try {
+                int number = Integer.parseInt(choice);
+
+                if (number >= 1 && number <= managerTypes.length) {
+                    return managerTypes[number - 1];
+                }
+
+            } catch (NumberFormatException e) {
+                // Invalid number
+            }
+
+            System.out.println("Invalid choice! Please try again.");
+        }
+    }
+
+    // Select an existing Department
+    public String getDepartmentInput(List<String> departments) {
+
+        while (true) {
+
+            System.out.println("\nSelect Department:");
+
+            for (int i = 0; i < departments.size(); i++) {
+                System.out.println(
+                    (i + 1) + ". " + departments.get(i)
+                );
+            }
+
+            System.out.print("Enter choice: ");
+
+            String choice = scanner.nextLine().trim();
+
+            try {
+                int number = Integer.parseInt(choice);
+
+                if (number >= 1 && number <= departments.size()) {
+                    return departments.get(number - 1);
+                }
+
+            } catch (NumberFormatException e) {
+                // Invalid number
+            }
+
+            System.out.println("Invalid department! Please try again.");
+        }
+    }
+
+    // Display newly added employee
+    public void displayNewEmployee(Employee employee) {
+
+        System.out.println("\nEmployee added successfully!");
+
+        System.out.println("Name: " + employee.getFullName());
+        System.out.println("Manager Type: " + employee.getManagerType());
+        System.out.println("Department: " + employee.getDepartment());
+    }
 
 
 }

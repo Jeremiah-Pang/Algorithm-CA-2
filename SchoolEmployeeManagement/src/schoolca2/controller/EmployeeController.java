@@ -11,6 +11,9 @@ import schoolca2.model.EmployeeAlgorithms;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -59,6 +62,19 @@ public class EmployeeController {
 
             // Display employee details
                    view.displaySearchResult(foundEmployee);
+                   
+            // Add a new employee
+                    addNewEmployee(employees);
+
+            // Sort the updated employee list
+                    List<Employee> updatedEmployees =
+                            algorithms.mergeSort(employees);
+
+                   employees.clear();
+                            employees.addAll(updatedEmployees);
+
+            // Display updated employee list
+                    view.displayTop20Employees(employees);
             
         }catch (IOException e){
             
@@ -69,4 +85,67 @@ public class EmployeeController {
             view.displayMessage("Invalid salary format in the file");
         }
     }
+    
+    
+    // Add a new employee
+    private void addNewEmployee(List<Employee> employees) {
+
+        System.out.println("\n=================================");
+        System.out.println(" ADD NEW SCHOOL EMPLOYEE");
+        System.out.println("=================================");
+
+        // Get employee name
+        String fullName = view.getNewEmployeeName();
+
+        while (fullName.isEmpty()) {
+            view.displayMessage("Name cannot be empty!");
+            fullName = view.getNewEmployeeName();
+        }
+
+        String[] nameParts = fullName.split("\\s+", 2);
+
+        String firstName = nameParts[0];
+        String lastName = nameParts.length > 1
+                ? nameParts[1] : "";
+
+        // Get valid Manager Type
+        String managerType = view.getManagerTypeInput();
+
+        // Get existing departments
+        Set<String> departmentSet = new TreeSet<>();
+
+        for (Employee employee : employees) {
+            departmentSet.add(employee.getDepartment());
+        }
+
+        List<String> departments =
+                new ArrayList<>(departmentSet);
+
+        // Get valid Department
+        String department =
+                view.getDepartmentInput(departments);
+
+        // Create new employee
+        Employee newEmployee = new Employee(
+                firstName,
+                lastName,
+                "Not specified",
+                "Not provided",
+                0.0,
+                department,
+                "Not specified",
+                "Not specified",
+                "School",
+                managerType
+        );
+
+        // Add employee to existing list
+        employees.add(newEmployee);
+
+        // Display newly added record
+        view.displayNewEmployee(newEmployee);
+
+        System.out.println("Total Employees: " + employees.size());
+    }
+
 }

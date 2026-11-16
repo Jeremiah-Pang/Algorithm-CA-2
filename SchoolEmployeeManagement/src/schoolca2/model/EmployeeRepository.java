@@ -48,7 +48,8 @@ public class EmployeeRepository {
                     data[5].trim(),
                     data[6].trim(),
                     data[7].trim(),
-                    data[8].trim()
+                    data[8].trim(),
+                    "Employee"
                 );
 
                 employees.add(employee);
