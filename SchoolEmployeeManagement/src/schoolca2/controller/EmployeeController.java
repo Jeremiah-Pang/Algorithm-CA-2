@@ -8,6 +8,7 @@ import schoolca2.model.Employee;
 import schoolca2.model.EmployeeRepository;
 import schoolca2.view.ConsoleView;
 import schoolca2.model.EmployeeAlgorithms;
+import schoolca2.model.EmployeeBinaryTree;
 
 import java.io.IOException;
 import java.util.List;
@@ -75,6 +76,27 @@ public class EmployeeController {
 
             // Display updated employee list
                     view.displayTop20Employees(employees);
+                    
+                    
+            // Create employee binary tree
+                    EmployeeBinaryTree tree = new EmployeeBinaryTree();
+
+            // Insert all employee records
+                    for (Employee employee : employees) {
+                            tree.insert(employee);
+            }
+
+            // Get level-order traversal
+                    List<Employee> hierarchy =
+                             tree.levelOrderTraversal();
+
+            // Display employee hierarchy
+                    view.displayEmployeeHierarchy(
+                             hierarchy,
+                             tree.getHeight(),
+                              tree.getNodeCount()
+            );
+
             
         }catch (IOException e){
             

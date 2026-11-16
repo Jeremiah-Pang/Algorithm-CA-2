@@ -171,6 +171,38 @@ public class ConsoleView {
         System.out.println("Manager Type: " + employee.getManagerType());
         System.out.println("Department: " + employee.getDepartment());
     }
+    
+    
+    // Display employee hierarchy
+    public void displayEmployeeHierarchy(
+            List<Employee> employees,
+            int height,
+            int nodeCount) {
+
+        System.out.println("\n=================================");
+        System.out.println(" SCHOOL EMPLOYEE BINARY TREE");
+        System.out.println("=================================");
+
+        for (int i = 0; i < employees.size(); i++) {
+
+            Employee employee = employees.get(i);
+
+            System.out.println(
+                (i + 1) + ". " +
+                employee.getFullName() +
+                " | Manager Type: " +
+                employee.getManagerType() +
+                " | Department: " +
+                employee.getDepartment()
+            );
+        }
+
+        System.out.println("---------------------------------");
+        System.out.println("Tree Height: " + height);
+        System.out.println("Total Nodes: " + nodeCount);
+        System.out.println("=================================");
+    }
+
 
 
 }
