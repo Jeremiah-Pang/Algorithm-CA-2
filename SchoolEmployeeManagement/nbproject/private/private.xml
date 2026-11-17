@@ -5,10 +5,12 @@
         <group>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/model/EmployeeAlgorithms.java</file>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/view/ConsoleView.java</file>
+            <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/MenuOption.java</file>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/main.java</file>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/model/EmployeeRepository.java</file>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/controller/EmployeeController.java</file>
             <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/model/Employee.java</file>
+            <file>file:/C:/Users/ipman/OneDrive/Desktop/Algorithm-CA-2/SchoolEmployeeManagement/src/schoolca2/model/EmployeeBinaryTree.java</file>
         </group>
     </open-files>
 </project-private>

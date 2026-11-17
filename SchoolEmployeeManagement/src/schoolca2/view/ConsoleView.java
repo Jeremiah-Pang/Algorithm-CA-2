@@ -77,8 +77,7 @@ public class ConsoleView {
 
         System.out.println("Name: " + employee.getFullName());
         System.out.println("Department: " + employee.getDepartment());
-        System.out.println("Position: " + employee.getPosition());
-        System.out.println("Job Title: " + employee.getJobTitle());
+        System.out.println("Manager Type: " + employee.getManagerType());
 
         System.out.println("=================================");
     }
